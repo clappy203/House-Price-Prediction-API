@@ -6,10 +6,12 @@ describes a census *block group* (a small geographic area), not a single house.
 
 from __future__ import annotations
 
+from typing import Any
+
 from pydantic import BaseModel, ConfigDict, Field
 
 # A realistic California block group, reused as an OpenAPI example.
-_EXAMPLE = {
+_EXAMPLE: dict[str, Any] = {
     "MedInc": 8.3252,
     "HouseAge": 41.0,
     "AveRooms": 6.9841,

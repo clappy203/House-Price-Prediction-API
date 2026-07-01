@@ -72,6 +72,27 @@ The service separates three concerns: **serving** requests in real time, **train
   <img src="docs/assets/architecture.svg" alt="Production architecture and workflow: serve path, offline training pipeline, and CI/CD delivery" width="100%">
 </p>
 
+### 🔁 MLOps lifecycle
+
+Beyond serving a single request, the project is designed as a full **MLOps loop**: build and validate the model, gate it on quality, ship it through CI/CD, serve it, and monitor it — with an automated retrain trigger when data drifts.
+
+<p align="center">
+  <img src="docs/assets/mlops_architecture.svg" alt="End-to-end MLOps lifecycle for house price prediction: data, training, quality gate, CI/CD, serving, and monitoring" width="100%">
+</p>
+
+| # | Stage | Concern | Tooling |
+|---|-------|---------|---------|
+| 1 | Data ingestion | Source the training data | scikit-learn California Housing dataset |
+| 2 | Feature engineering | Scale and prepare inputs | `StandardScaler` (in-pipeline) |
+| 3 | Model training | Reproducible, versioned training | `GradientBoostingRegressor` pipeline |
+| 4 | Evaluation + quality gate | Block low-quality models | R² · MAE · RMSE, gated on **R² ≥ 0.75** |
+| 5 | Model registry | Versioned, promotable artifact | `model.joblib` bundle (estimator + metrics) |
+| 6 | CI/CD | Automated build and checks | GitHub Actions · ruff/black/mypy/pytest · Docker · GHCR |
+| 7 | Deploy & serve | Container serving in production | FastAPI · Uvicorn · Docker · Render |
+| 8 | Monitoring | Health, logs, and drift | `/health` probe · structured logging · metrics/alerts |
+
+> The evaluation quality gate mirrors a production `ConditionStep`: models that clear the R² threshold are promoted and deployed; models that fail are blocked. Monitoring closes the loop by flagging drift and triggering a retrain.
+
 ## 🗂️ Project structure
 
 ```
