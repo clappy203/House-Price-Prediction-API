@@ -1,5 +1,32 @@
-venv
-database
-__pycache__
-.idea
-.vscode
+# Byte-compiled / packaging
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Trained model artifacts (regenerate with `make train`)
+artifacts/*.joblib
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.log
+
+# Local environment overrides
+.env

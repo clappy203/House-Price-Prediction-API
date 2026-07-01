@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#131f38"/>
+    </linearGradient>
+    <linearGradient id="price" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="model" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5a4"/>
+      <stop offset="1" stop-color="#2dd4bf"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="7" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5b7cc0"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="60" y="50" width="6" height="32" rx="3" fill="#2dd4bf"/>
+  <text x="80" y="72" font-size="27" font-weight="700" fill="#e8eefb">Project Objective</text>
+  <text x="80" y="100" font-size="15.5" fill="#93a4c3">Turn raw neighborhood data into instant, reliable house-price predictions &#8212; delivered as a production REST API.</text>
+
+  <!-- Input card -->
+  <rect x="70" y="150" width="330" height="300" rx="16" fill="#16223b" stroke="#2b3a5c" stroke-width="1.5"/>
+  <text x="92" y="188" font-size="17" font-weight="700" fill="#e8eefb">Neighborhood Features</text>
+  <g font-size="14" fill="#cdd8ec">
+    <rect x="92" y="206" width="286" height="36" rx="8" fill="#1e2c49"/><text x="108" y="230">Median income</text>
+    <rect x="92" y="250" width="286" height="36" rx="8" fill="#1e2c49"/><text x="108" y="274">Average rooms &amp; bedrooms</text>
+    <rect x="92" y="294" width="286" height="36" rx="8" fill="#1e2c49"/><text x="108" y="318">House age</text>
+    <rect x="92" y="338" width="286" height="36" rx="8" fill="#1e2c49"/><text x="108" y="362">Population &amp; occupancy</text>
+    <rect x="92" y="382" width="286" height="36" rx="8" fill="#1e2c49"/><text x="108" y="406">Latitude / Longitude</text>
+  </g>
+
+  <!-- arrow 1 -->
+  <line x1="404" y1="300" x2="512" y2="300" stroke="#5b7cc0" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="458" y="288" font-size="12.5" fill="#93a4c3" text-anchor="middle">validate</text>
+
+  <!-- Model box -->
+  <rect x="520" y="248" width="190" height="112" rx="16" fill="url(#model)"/>
+  <text x="615" y="296" font-size="19" font-weight="700" fill="#08251f" text-anchor="middle">ML Model</text>
+  <text x="615" y="320" font-size="12.5" fill="#08312a" text-anchor="middle">scikit-learn</text>
+  <text x="615" y="338" font-size="12.5" fill="#08312a" text-anchor="middle">Gradient Boosting</text>
+
+  <!-- arrow 2 -->
+  <line x1="714" y1="304" x2="792" y2="304" stroke="#5b7cc0" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="753" y="292" font-size="12.5" fill="#93a4c3" text-anchor="middle">predict</text>
+
+  <!-- Price box -->
+  <rect x="800" y="244" width="330" height="130" rx="16" fill="#16223b" stroke="#3a2f13" stroke-width="1.5"/>
+  <text x="965" y="286" font-size="14" fill="#93a4c3" text-anchor="middle">Predicted median value</text>
+  <text x="965" y="336" font-size="42" font-weight="800" fill="url(#price)" text-anchor="middle">$452,312</text>
+  <text x="965" y="360" font-size="12" fill="#6f819e" text-anchor="middle">example JSON response</text>
+
+  <!-- footer chips -->
+  <g font-size="13.5" fill="#9fb0cd">
+    <circle cx="90" cy="482" r="4" fill="#2dd4bf"/><text x="104" y="487">Validated inputs</text>
+    <circle cx="300" cy="482" r="4" fill="#38bdf8"/><text x="314" y="487">Versioned model</text>
+    <circle cx="520" cy="482" r="4" fill="#a78bfa"/><text x="534" y="487">Container-ready REST API</text>
+  </g>
+</svg>

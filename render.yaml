@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: house-price-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: APP_ENVIRONMENT
+        value: production
+      - key: APP_LOG_LEVEL
+        value: INFO
