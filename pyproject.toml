@@ -7,7 +7,7 @@ name = "house-price-api"
 version = "1.0.0"
 description = "Production-ready FastAPI service that predicts California housing prices."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = "==3.14"
 license = { text = "MIT" }
 authors = [{ name = "Petra Omaku", email = "omaku.petra@gmail.com" }]
 keywords = ["machine-learning", "fastapi", "mlops", "regression", "scikit-learn"]
@@ -33,7 +33,7 @@ dev = [
     "httpx>=0.27",
     "ruff>=0.5",
     "black>=24.4",
-    "mypy>=1.10",
+    "mypy==2.1.0",
     "pre-commit>=3.7",
 ]
 
@@ -79,7 +79,7 @@ line-length = 100
 target-version = ["py311"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.14"
 strict = true
 plugins = ["pydantic.mypy"]
 ignore_missing_imports = true

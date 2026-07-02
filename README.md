@@ -38,15 +38,15 @@ You send neighborhood features  ──►  the API validates them
 
 The three ideas to know:
 
-- **Model** — the trained math formula that turns features into a price.
-- **API** — a program that waits for requests on a web address and responds.
-- **POST request** — sending data *to* a web address (as opposed to just reading
+- **Model** : the trained math formula that turns features into a price.
+- **API** : a program that waits for requests on a web address and responds.
+- **POST request** : sending data *to* a web address (as opposed to just reading
   from it). You POST the house features; the API replies with a price.
 
 > **A note on the data.** The original version of this project used the classic
 > *Boston Housing* dataset, which scikit-learn **removed** because one of its
 > features encoded a racially biased assumption. This project uses the modern
-> **California Housing** dataset instead — same kind of task, no ethical baggage.
+> **California Housing** dataset instead; same kind of task, no ethical baggage.
 
 ---
 
@@ -74,7 +74,7 @@ The service separates three concerns: **serving** requests in real time, **train
 
 ### 🔁 MLOps lifecycle
 
-Beyond serving a single request, the project is designed as a full **MLOps loop**: build and validate the model, gate it on quality, ship it through CI/CD, serve it, and monitor it — with an automated retrain trigger when data drifts.
+Beyond serving a single request, the project is designed as a full **MLOps loop**: build and validate the model, gate it on quality, ship it through CI/CD, serve it, and monitor it with an automated retrain trigger when data drifts.
 
 <p align="center">
   <img src="docs/assets/mlops_architecture.svg" alt="End-to-end MLOps lifecycle for house price prediction: data, training, quality gate, CI/CD, serving, and monitoring" width="100%">
