@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---- Build stage: install deps and train the model -------------------------
-FROM python:3.12-slim AS builder
+FROM python:3.14.3-slim AS builder
 ENV PIP_NO_CACHE_DIR=1 PYTHONDONTWRITEBYTECODE=1
 WORKDIR /app
 COPY pyproject.toml README.md ./
@@ -11,13 +11,13 @@ RUN pip install --upgrade pip && pip install .
 RUN python -m app.ml.train --output artifacts/model.joblib
 
 # ---- Runtime stage: minimal image, non-root user ---------------------------
-FROM python:3.12-slim AS runtime
+FROM python:3.14.3-slim AS runtime
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     APP_MODEL_PATH=artifacts/model.joblib
 WORKDIR /app
 RUN useradd --create-home --uid 1000 appuser
-COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/lib/python3.14.3/site-packages /usr/local/lib/python3.14.3/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /app/app ./app
 COPY --from=builder /app/artifacts ./artifacts
