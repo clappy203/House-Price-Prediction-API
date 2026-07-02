@@ -17,7 +17,7 @@ ENV PYTHONUNBUFFERED=1 \
     APP_MODEL_PATH=artifacts/model.joblib
 WORKDIR /app
 RUN useradd --create-home --uid 1000 appuser
-COPY --from=builder /usr/local/lib/python3.14.3/site-packages /usr/local/lib/python3.14.3/site-packages
+COPY --from=builder /usr/local/lib/python3.14/site-packages /usr/local/lib/python3.14/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /app/app ./app
 COPY --from=builder /app/artifacts ./artifacts
